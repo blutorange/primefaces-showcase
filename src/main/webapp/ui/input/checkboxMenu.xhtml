@@ -43,9 +43,19 @@
                                       filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
                     <f:selectItems value="#{checkboxView.cars}" />
                 </p:selectCheckboxMenu>
+                
+                <h:outputLabel for="themes" value="With converter and validator (select at least 2 items):" />
+                <p:selectCheckboxMenu id="themes" value="#{checkboxView.selectedThemes}" label="Themes"
+                                      multiple="true" converter="#{themeConverter}"
+                                      filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
+                    <f:validator validatorId="AtLeast2Validator"/>
+                    <f:selectItems value="#{checkboxView.themes}" var="theme" itemLabel="#{theme.displayName}" itemValue="#{theme}" />
+                </p:selectCheckboxMenu>
+                
             </h:panelGrid>
 
             <p:commandButton value="Submit" update="displayItems" oncomplete="PF('itemDialog').show()" style="margin-top:10px;" />
+            <p:commandButton value="Validate" update="@form" process="@form" style="margin-top:10px;" />
 
             <p:dialog header="Selected Items" modal="true" showEffect="fade" hideEffect="fade" widgetVar="itemDialog" width="250">
                 <p:outputPanel id="displayItems">

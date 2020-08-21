@@ -15,20 +15,27 @@
  */
 package org.primefaces.showcase.view.input;
 
-import javax.annotation.PostConstruct;
-import javax.enterprise.context.RequestScoped;
-import javax.faces.model.SelectItem;
-import javax.faces.model.SelectItemGroup;
-import javax.inject.Named;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.faces.model.SelectItem;
+import javax.faces.model.SelectItemGroup;
+import javax.inject.Inject;
+import javax.inject.Named;
+
 import org.primefaces.event.UnselectEvent;
+import org.primefaces.showcase.domain.Theme;
+import org.primefaces.showcase.service.ThemeService;
 
 @Named
 @RequestScoped
 public class CheckboxView {
+    @Inject
+    private ThemeService service;
 
     private String[] selectedConsoles;
     private String[] selectedConsoles2;
@@ -37,9 +44,13 @@ public class CheckboxView {
     private List<String> cities;
     private List<SelectItem> cars;
     private String[] selectedCars;
+    private List<Theme> themes;
+    private List<Theme> selectedThemes;
 
     @PostConstruct
     public void init() {
+        themes = service.getThemes();
+
         cities = new ArrayList<String>();
         cities.add("Miami");
         cities.add("London");
@@ -120,6 +131,18 @@ public class CheckboxView {
 
     public void setSelectedCars(String[] selectedCars) {
         this.selectedCars = selectedCars;
+    }
+    
+    public List<Theme> getThemes() {
+        return themes;
+    }
+
+    public List<Theme> getSelectedThemes() {
+        return selectedThemes;
+    }
+
+    public void setSelectedThemes(List<Theme> selectedThemes) {
+        this.selectedThemes = selectedThemes;
     }
 
     public void onItemUnselect(UnselectEvent event) {
