@@ -102,6 +102,9 @@
 
                 <p:outputLabel for="time" value="Time Only:" />
                 <p:calendar id="time" value="#{calendarJava8View.time1}" pattern="HH:mm" timeOnly="true"  />
+
+                <p:outputLabel for="pattern" value="Pattern with quotes" />
+                <p:calendar id="pattern" value="#{calendarJava8View.date15}" pattern="y@M@d ('pattern: ''y@M@d''')" />
             </h:panelGrid>
             
             <p:commandButton value="Submit" update="msgs" action="#{calendarJava8View.click}" icon="pi pi-check" />
@@ -158,6 +161,11 @@
                         <f:convertDateTime pattern="MM/dd/yyyy" type="localDate"/>
                     </h:outputText>
                     
+                    <h:outputText value="Pattern with quotes:" />
+                    <h:outputText value="#{calendarJava8View.date15}">
+                        <f:convertDateTime pattern="yyyy/MM/dd" type="localDate"/>
+                    </h:outputText>
+
                     <h:outputText value="Datetime:" />
                     <h:outputText value="#{calendarJava8View.dateTime1}">
                         <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" type="localDateTime"/>

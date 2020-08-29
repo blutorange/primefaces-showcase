@@ -162,6 +162,9 @@
 
                             <p:outputLabel for="multi" value="Multiple Months:" />
                             <p:datePicker id="multi" value="#{calendarJava8View.date12}" numberOfMonths="3" showOtherMonths="#{calendarJava8View.showOtherMonths}"/>
+
+                            <p:outputLabel for="pattern" value="Pattern with quotes" />
+                            <p:datePicker id="pattern" value="#{calendarJava8View.date15}" pattern="y@M@d ('pattern: ''y@M@d''')" />
                         </p:panelGrid>
                     </p:panel>
 
@@ -335,6 +338,11 @@
                     <h:outputText value="Multiple Months:" />
                     <h:outputText value="#{calendarJava8View.date12}">
                         <f:convertDateTime pattern="MM/dd/yyyy" type="localDate" />
+                    </h:outputText>
+                    
+                    <h:outputText value="Pattern with quotes:" />
+                    <h:outputText value="#{calendarJava8View.date15}">
+                        <f:convertDateTime pattern="yyyy//MM/dd" type="localDate" />
                     </h:outputText>
 
                     <h:outputText value="Time (with Select Event):" />

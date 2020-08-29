@@ -154,6 +154,9 @@
 
                 <p:outputLabel for="timeonlyMinMax" value="Time Only (Min-Max):" />
                 <p:datePicker id="timeonlyMinMax" value="#{calendarView.date15}" timeOnly="true" pattern="HH:mm" mindate="#{calendarView.minTime}" maxdate="#{calendarView.maxTime}"/>
+
+                <p:outputLabel for="pattern" value="Pattern with quotes" />
+                <p:datePicker id="pattern" value="#{calendarView.date17}" pattern="y@M@d ('pattern: ''y@M@d''')" />
             </h:panelGrid>
 
             <p:commandButton value="Submit" update="msgs" action="#{calendarView.click}" icon="pi pi-check" />
@@ -264,6 +267,11 @@
                     <h:outputText value="Time Only (Min-Max):" />
                     <h:outputText value="#{calendarView.date15}">
                         <f:convertDateTime pattern="HH:mm" />
+                    </h:outputText>
+
+                    <h:outputText value="Pattern with quotes:" />
+                    <h:outputText value="#{calendarView.date17}">
+                        <f:convertDateTime pattern="yyyy/MM/dd" />
                     </h:outputText>
                 </p:panelGrid>
             </p:dialog>

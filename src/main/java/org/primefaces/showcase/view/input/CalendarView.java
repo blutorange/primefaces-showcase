@@ -51,6 +51,7 @@ public class CalendarView implements Serializable {
     private Date date14;
     private Date date15;
     private Date date16;
+    private Date date17;
     private Date dateTimeDe;
     private List<Date> multi;
     private List<Date> range;
@@ -100,6 +101,8 @@ public class CalendarView implements Serializable {
 
         dateDe = GregorianCalendar.getInstance().getTime();
         dateTimeDe = GregorianCalendar.getInstance().getTime();
+        
+        date17 = GregorianCalendar.getInstance().getTime();
     }
 
     public void onDateSelect(SelectEvent<Date> event) {
@@ -319,6 +322,14 @@ public class CalendarView implements Serializable {
 
     public void setDate16(Date date16) {
         this.date16 = date16;
+    }
+    
+    public Date getDate17() {
+        return date17;
+    }
+    
+    public void setDate17(Date date17) {
+        this.date17 = date17;
     }
 
     public Date getMinDateTime() {

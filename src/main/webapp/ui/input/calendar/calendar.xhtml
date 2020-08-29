@@ -99,6 +99,11 @@
 
                 <p:outputLabel for="time" value="Time Only:" />
                 <p:calendar id="time" value="#{calendarView.date11}" pattern="HH:mm" timeOnly="true"  />
+
+
+                <p:outputLabel for="pattern" value="Pattern with quotes" />
+                <p:calendar id="pattern" value="#{calendarView.date17}" pattern="y@M@d ('pattern: ''y@M@d''')" />
+
             </h:panelGrid>
             
             <p:commandButton value="Submit" update="msgs" action="#{calendarView.click}" icon="pi pi-check" />
@@ -168,6 +173,11 @@
                     <h:outputText value="Time Only:" />
                     <h:outputText value="#{calendarView.date11}">
                         <f:convertDateTime pattern="HH:mm" />
+                    </h:outputText>
+
+                    <h:outputText value="Patten with quotes:" />
+                    <h:outputText value="#{calendarView.date17}">
+                        <f:convertDateTime pattern="yyyy/MM/dd" />
                     </h:outputText>
                 </p:panelGrid>
             </p:dialog>
